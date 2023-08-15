@@ -1,0 +1,30 @@
+# import the Libraries
+
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Load data from CSV
+
+data = pd.read_csv("C:\\Users\\Kamlesh jangid\\Desktop\\Resale Flat prices.csv")
+
+# Convert Approval Date to datetime format
+
+data['Approval Date'] = pd.to_datetime(data['Approval Date'])
+
+# Sort DataFrame by Approval Date
+
+data = data.sort_values(by='Approval Date')
+
+# Create a line plot
+
+plt.plot(data['Approval Date'], data['Resale Flat Price'])
+plt.xlabel('Approval Date')
+plt.ylabel('Resale Flat Price')
+plt.title('Resale Flat Price over Time')
+plt.xticks(rotation=45)
+plt.tight_layout()
+
+#Show the plot
+
+plt.show()
+
